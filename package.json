@@ -4,15 +4,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "start": "react-scripts start",
+    "start": "node backend/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-=======
-    "start": "node backend/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> bafe062 (Fix start script and duplicate limiter declaration)
   },
   "keywords": [],
   "author": "",
@@ -31,11 +26,11 @@
     "mongodb": "^6.9.0",
     "mongoose": "^8.7.1",
     "node-cron": "^3.0.3",
-<<<<<<< HEAD
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^3.0.4"
+    "web-vitals": "^3.0.4",
+    "express-rate-limit": "^6.7.0"
   },
   "eslintConfig": {
     "extends": [
@@ -54,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-=======
-    "express-rate-limit": "^6.7.0"
->>>>>>> bafe062 (Fix start script and duplicate limiter declaration)
   }
 }
