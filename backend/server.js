@@ -44,12 +44,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Rate limiting middleware
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 5, // limit each IP to 5 requests per windowMs
-  message: "Too many requests from this IP, please try again later."
-});
 
 // Apply rate limiter to admin routes
 app.use('/admin', limiter);
