@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,20 +15,21 @@ const Sprite = ({ x, y, size, color }) => (
       height: `${size}px`,
       backgroundColor: color,
       opacity: 0.5,
-    }}
+    }} 
   />
 );
+
+export default Sprite;
 
 export default function App() {
   const [potAmount, setPotAmount] = useState(1000);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [spots, setSpots] = useState(0);
-  const [leaderboard, setLeaderboard] = useState([]); // Adjusted to fetch winners
+  const [leaderboard, setLeaderboard] = useState([]);
   const [sprites, setSprites] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const animationRef = useRef();
   const containerRef = useRef();
 
@@ -51,7 +51,6 @@ export default function App() {
       color: colors[Math.floor(Math.random() * colors.length)]
     }));
     setSprites(newSprites);
-
     const animate = () => {
       setSprites(prevSprites => 
         prevSprites.map(sprite => {
@@ -66,7 +65,6 @@ export default function App() {
       animationRef.current = requestAnimationFrame(animate);
     };
     animate();
-
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -74,7 +72,6 @@ export default function App() {
     };
   }, []);
 
-  // Fetch leaderboard data (monthly winners)
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
@@ -88,7 +85,6 @@ export default function App() {
         console.error('Error fetching leaderboard:', error);
       }
     };
-
     fetchLeaderboard();
   }, []);
 
@@ -98,7 +94,7 @@ export default function App() {
       if (!token) {
         throw new Error('User not logged in. Please log in to continue.');
       }
-  
+
       const response = await fetch('https://polar-ravine-08798.herokuapp.com/purchase', {
         method: 'POST',
         headers: {
@@ -110,11 +106,11 @@ export default function App() {
           potAmount: potAmount,
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to purchase sticker.');
       }
-  
+
       console.log('Sticker purchased successfully');
       setPotAmount(prevAmount => prevAmount + 1);
       setSpots(prevSpots => prevSpots + 1);
@@ -122,7 +118,7 @@ export default function App() {
       console.error('Purchase error:', error);
     }
   };
-  
+
   const handleLogin = async () => {
     try {
       const response = await fetch('https://polar-ravine-08798.herokuapp.com/auth/login', {
@@ -132,23 +128,23 @@ export default function App() {
         },
         body: JSON.stringify({ email, password }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Login failed');
       }
-  
+
       const data = await response.json();
       console.log("Logged in successfully:", data);
-  
+
       setIsLoggedIn(true);
       setUsername(email);
-  
+
       localStorage.setItem('token', data.token);
     } catch (error) {
       console.error("Login error:", error);
     }
   };
-  
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     console.log("Logged out");
@@ -166,77 +162,5 @@ export default function App() {
           <h1 className="text-4xl font-bold mb-2 animate-pulse">Halfpot</h1>
           <p className="text-2xl">Current Pot: ${potAmount}</p>
         </header>
-
         <div className="flex flex-1">
-          <aside className="w-1/4 mr-4">
-            <h2 className="text-xl mb-2">Leaderboard</h2>
-            <ScrollArea className="h-64 border border-green-500 p-2">
-              {leaderboard.map((winner, index) => (
-                <p key={index} className="mb-2">
-                  {winner.username} - {winner.month} - ${winner.amount}
-                </p>
-              ))}
-            </ScrollArea>
-          </aside>
-
-          <main className="flex-1 flex flex-col items-center justify-center -mt-16">
-            <Button 
-              className="text-4xl px-12 py-6 mb-8 bg-green-500 text-black hover:bg-green-600 transform hover:scale-105 transition-transform"
-              onClick={handleBuyDigitalSticker}
-            >
-              Buy Digital Sticker
-            </Button>
-          </main>
-
-          <aside className="w-1/4 ml-4">
-            {isLoggedIn ? (
-              <div>
-                <p className="mb-2">Welcome, {username}!</p>
-                <p className="mb-2">Your spots: {spots}</p>
-                <Button 
-                  className="w-full mb-2 bg-green-500 text-black hover:bg-green-600"
-                  onClick={handleBuyDigitalSticker}
-                >
-                  Buy Digital Sticker
-                </Button>
-                <Button 
-                  className="w-full bg-green-500 text-black hover:bg-green-600"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </Button>
-              </div>
-            ) : (
-              <div>
-                <Input 
-                  className="w-full mb-2 bg-black text-green-500 border-green-500" 
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Input 
-                  className="w-full mb-2 bg-black text-green-500 border-green-500" 
-                  type="password" 
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <Button 
-                  className="w-full bg-green-500 text-black hover:bg-green-600"
-                  onClick={handleLogin}
-                >
-                  Login
-                </Button>
-              </div>
-            )}
-          </aside>
-        </div>
-
-        <footer className="mt-8 text-center">
-          <p className="mb-2">Half of the pot goes to a winner selected at random at the end of each month.</p>
-          <a href="#" className="underline">FAQ</a>
-        </footer>
-      </div>
-    </div>
-  );
-}
+          <aside

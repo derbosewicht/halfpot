@@ -78,7 +78,7 @@ export default function Component() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch('http://localhost:5000/leaderboard');
+        const response = await fetch('https://polar-ravine-08798.herokuapp.com/leaderboard');
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard data');
         }
@@ -103,7 +103,7 @@ export default function Component() {
       }
   
       // Make the POST request to the backend /purchase endpoint
-      const response = await fetch('http://localhost:5000/purchase', {
+      const response = await fetch('https://polar-ravine-08798.herokuapp.com/purchase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ export default function Component() {
   const handleLogin = async () => {
     try {
       // Sending a POST request to your backend server to log in
-      const response = await fetch('http://localhost:5000/auth/login', {
+      const response = await fetch('https://polar-ravine-08798.herokuapp.com/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

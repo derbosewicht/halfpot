@@ -1,0 +1,61 @@
+[33mcommit 2d52c834ed2e85493b1dc7c1092e685823e2ed35[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 17:31:06 2024 -0400
+
+    Force update App.js to trigger deployment
+
+[33mcommit bb067f9a75887d227f882262ad317587ba6289a5[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 17:26:56 2024 -0400
+
+    Replace App.js content with updated component
+
+[33mcommit 98def9fca6f1485ee1b10fd8d1712b074103e94e[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 17:13:45 2024 -0400
+
+    Trigger deployment to reset to npm
+
+[33mcommit 2a23e8ddbd0862aabecf1f2ace427d2399aa0814[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 17:05:15 2024 -0400
+
+    Add custom build script for Vercel deployment
+
+[33mcommit 70142ba8e30b4cdb2fa1572907e27fa96734ab81[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 17:02:07 2024 -0400
+
+    Fix JSON syntax issue in package.json
+
+[33mcommit 4b078f467a2e77ffabf821b79617481fd768d956[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 12:12:55 2024 -0400
+
+    Fix duplicate rate limiter declaration
+
+[33mcommit 4f8dfbea262cb751c479feacfd0e6b80de3ee142[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 12:09:53 2024 -0400
+
+    Fix start script and duplicate limiter declaration
+
+[33mcommit 0c2477e11951671cef4862517b58ce447ab91128[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 12:05:55 2024 -0400
+
+    Add Procfile for Heroku
+
+[33mcommit 845bddc6d17d92a45e6faf0ae62f303fa61c076f[m
+Author: Ben <blideside16@gmail.com>
+Date:   Tue Oct 15 16:52:59 2024 -0400
+
+    Resolved merge conflicts in .gitignore and package.json
+
+[33mcommit ac446ea273bc35bed4ad771acd63a0e4252a55aa[m
+Author: derbosewicht <8877561+derbosewicht@users.noreply.github.com>
+Date:   Tue Oct 15 17:14:53 2024 +0000
+
+    Initial commit
+    
+    Created from https://vercel.com/new

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "./ui/button";  // Adjusted import path to match new folder structure
-import { Input } from "./ui/input";    // Adjusted import path
 import { ScrollArea } from "./ui/scroll-area"; // Adjusted import path
 
 
