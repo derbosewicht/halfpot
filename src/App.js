@@ -1,26 +1,10 @@
-// Trigger redeployment
 'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import AdminDashboard from "@/components/admin/AdminDashboard";
-
-const Sprite = ({ x, y, size, color }) => (
-  <div 
-    className="absolute rounded-full"
-    style={{
-      left: `${x}px`,
-      top: `${y}px`,
-      width: `${size}px`,
-      height: `${size}px`,
-      backgroundColor: color,
-      opacity: 0.5,
-    }} 
-  />
-);
-
-export default Sprite;
+import Sprite from "./Sprite";  // Assuming you moved Sprite to a separate file
 
 export default function App() {
   const [potAmount, setPotAmount] = useState(1000);
@@ -53,7 +37,7 @@ export default function App() {
     }));
     setSprites(newSprites);
     const animate = () => {
-      setSprites(prevSprites => 
+      setSprites(prevSprites =>
         prevSprites.map(sprite => {
           let { x, y, vx, vy, size, color } = sprite;
           x += vx;
@@ -154,14 +138,4 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-green-500 font-mono p-4 flex flex-col relative overflow-hidden" ref={containerRef}>
-      {sprites.map((sprite, index) => (
-        <Sprite key={index} {...sprite} />
-      ))}
-      <div className="relative z-10">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2 animate-pulse">Halfpot</h1>
-          <p className="text-2xl">Current Pot: ${potAmount}</p>
-        </header>
-        <div className="flex flex-1">
-          <aside
+    <div className="min-h-screen bg-black text-green-500 font-mono p-4 flex flex-col relative overflow-hidden" ref={conta
